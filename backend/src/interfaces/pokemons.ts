@@ -28,4 +28,9 @@ export interface pokemonProps {
 	futureEvolve: number;
 	maxCp40: number;
 	maxCp39: number;
+	pokemons: [];
+}
+
+export interface createPokemonProps {
+	pokemons: pokemonProps[];
 }

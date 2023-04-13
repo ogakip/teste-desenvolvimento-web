@@ -1,19 +1,10 @@
 import { appDataSource } from '../data-source';
 import { AppError } from '../errors/appError';
 import { Pokemons } from '../entities/pokemon.entities';
-import { pokemonProps } from '../interfaces/pokemons';
+import { createPokemonProps } from '../interfaces/pokemons';
 
-export const createPokemonService = async (
-	data: pokemonProps | pokemonProps[]
-) => {
+export const createPokemonService = async (data: createPokemonProps) => {
 	const getPokemonRepo = appDataSource.getRepository(Pokemons);
-	if (Array.isArray(data)) {
-		data.forEach(async (pokemon) => {
-			await getPokemonRepo.save(pokemon);
-		});
-	} else {
-		await getPokemonRepo.save(data);
-	}
-
- return 'OK'
+	await getPokemonRepo.save(data.pokemons);
+	return 'OK';
 };
