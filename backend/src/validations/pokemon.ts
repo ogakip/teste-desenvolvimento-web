@@ -37,3 +37,7 @@ export const pokemonsValidationSchema = object({
 		})
 	),
 });
+
+export const pokemonsIdValidationSchema = object({
+	ids: array().of(string().required(`É necessário os ID's dos pokemons para exclusão`)),
+});
