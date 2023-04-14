@@ -12,8 +12,10 @@ export const GlobalStyles = createGlobalStyle`
 :root {
  --bg-color: #ca1d1d;
  --bg2-color: #F22E2E;
+ --bg3-color: #0D0D0D;
  --title-color: #ffffff;
  --text-color: #d2d2d2;
+ --white-color: #ffffff;
 }
 
 h1, h2, h3, h4 {
