@@ -4,9 +4,11 @@ import { schemaValidation } from '../middlewares/handleValidate';
 import { createPokemonController } from '../controllers/createPokemon';
 import { readPokemonsController } from '../controllers/readPokemons';
 import { deletePokemonsController } from '../controllers/deletePokemons';
+import { editPokemonController } from '../controllers/editPokemon';
 
 import {
 	pokemonsIdValidationSchema,
+	pokemonsOptionalValidationSchema,
 	pokemonsValidationSchema,
 } from '../validations/pokemon';
 
@@ -21,4 +23,9 @@ PokemonRouter.delete(
 	'/delete',
 	schemaValidation(pokemonsIdValidationSchema),
 	deletePokemonsController
+);
+PokemonRouter.patch(
+	'/update',
+	schemaValidation(pokemonsOptionalValidationSchema),
+	editPokemonController
 );

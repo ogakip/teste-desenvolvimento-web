@@ -28,7 +28,10 @@ export interface pokemonProps {
 	futureEvolve: number;
 	maxCp40: number;
 	maxCp39: number;
-	pokemons: [];
+}
+
+export interface editPokemonProps extends Partial<pokemonProps> {
+	id: string;
 }
 
 export interface createPokemonProps {
