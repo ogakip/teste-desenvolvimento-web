@@ -4,6 +4,10 @@ import reportWebVitals from './reportWebVitals';
 import { GlobalStyles } from './styles';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
+import { ContextProvider } from './context';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'antd/dist/reset.css';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -11,7 +15,10 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<GlobalStyles />
-		<RouterProvider router={router} />
+		<ContextProvider>
+			<ToastContainer />
+			<RouterProvider router={router} />
+		</ContextProvider>
 	</React.StrictMode>
 );
 
