@@ -34,10 +34,49 @@ export const pokemonsValidationSchema = object({
 			),
 			maxCp40: number().required('O CP máximo para o nível 40 é obrigatório'),
 			maxCp39: number().required('O CP máximo para o nível 39 é obrigatório'),
-		})
+		}).noUnknown()
 	),
-});
+}).noUnknown();
 
 export const pokemonsIdValidationSchema = object({
-	ids: array().of(string().required(`É necessário os ID's dos pokemons para exclusão`)),
-});
+	ids: array().of(
+		string().required(`É necessário os ID's dos pokemons para exclusão`)
+	),
+}).noUnknown();
+
+export const pokemonsOptionalValidationSchema = object({
+	data: array(
+		object({
+			id: string().required('O ID do pokemon é obrigatório'),
+			name: string().optional(),
+			pokedexNumber: number().optional(),
+			imgName: number().optional(),
+			generation: number().optional(),
+			evolutionStage: number().optional(),
+			evolved: number().optional(),
+			familyID: number().optional(),
+			crossGen: number().optional(),
+			typeOne: string().optional(),
+			typeTwo: string().optional(),
+			weatherOne: string().optional(),
+			weatherTwo: string().optional(),
+			statTotal: number().optional(),
+			atk: number().optional(),
+			def: number().optional(),
+			sta: number().optional(),
+			legendary: number().optional(),
+			aquireable: number().optional(),
+			spawns: number().optional(),
+			regional: number().optional(),
+			raidable: number().optional(),
+			hatchable: number().optional(),
+			shiny: number().optional(),
+			nest: number().optional(),
+			new: number().optional(),
+			notGettable: number().optional(),
+			futureEvolve: number().optional(),
+			maxCp40: number().optional(),
+			maxCp39: number().optional(),
+		}).noUnknown()
+	),
+}).noUnknown();
