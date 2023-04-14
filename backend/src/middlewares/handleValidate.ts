@@ -18,8 +18,8 @@ export const schemaValidation =
 			if (invalidFields.length > 0) {
 				throw new ValidationError(
 					invalidFields.length > 1
-						? `(${invalidFields.join(', ')}) are invalids fields`
-						: `(${invalidFields[0]}) is an invalid field`
+						? `(${invalidFields.join(', ')}) são campos inválidos`
+						: `(${invalidFields[0]}) é um campo inválido`
 				);
 			}
 
