@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+ red_pokemon:
+  build: ./backend
+  command: yarn dev
+  ports:
+   - 8080:8080
+  volumes:
+   - ./backend/:/app:rw
+  depends_on:
+   - red_pokemon_database
+
+ red_pokemon_database:
+  image: postgres:14
+  environment:
+   - POSTGRES_USER=postgres
+   - POSTGRES_PASSWORD=postgres
+   - POSTGRES_DB=red_pokemon_database
+  ports:
+   - 5432:5432
+  healthcheck:
+   test: ['CMD-SHELL', 'pg_isready -U postgres -d red_pokemon_database']
+   interval: 10s
+   timeout: 15s
+   retries: 5
+   start_period: 30s
