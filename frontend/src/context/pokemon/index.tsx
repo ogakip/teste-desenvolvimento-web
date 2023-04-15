@@ -25,6 +25,7 @@ const initialValues = {
 	addToDesktop: () => '',
 	changeMode: () => '',
 	pokemonList: [],
+	pokemonCount: 0,
 };
 
 export const PokeContext = createContext<pokeContextProps>(initialValues);
@@ -33,6 +34,7 @@ export const PokeProvider: FC<PropsWithChildren<contextProps>> = ({
 	children,
 }): JSX.Element => {
 	const allowedModes = ['create', 'edit', 'delete'];
+	const [pokemonCount, setPokemonCount] = useState<number>(0);
 	const [pokemonList, setPokemonList] = useState([]);
 	const [selectedCreateData, setSelectedCreateData] = useState<pokemonProps[]>(
 		[]
@@ -54,7 +56,10 @@ export const PokeProvider: FC<PropsWithChildren<contextProps>> = ({
 		} else {
 			await api
 				.get(`/get?search=${search}`)
-				.then((res) => setPokemonList(res.data))
+				.then((res) => {
+					setPokemonList(res.data);
+					console.log(res.data);
+				})
 				.catch((err) => console.error(err));
 		}
 	};
@@ -119,7 +124,7 @@ export const PokeProvider: FC<PropsWithChildren<contextProps>> = ({
 	};
 
 	const changeMode = (newMode: string) => {
-		if (allowedModes.includes(newMode)) {
+		if (allowedModes.includes(newMode) && currentMode !== newMode) {
 			setCurrentMode(newMode);
 			toast.success(
 				`Modo alterado para ${
@@ -135,6 +140,12 @@ export const PokeProvider: FC<PropsWithChildren<contextProps>> = ({
 		}
 	};
 
+	useEffect(() => {
+		if (pokemonList && pokemonList.length) {
+			setPokemonCount(pokemonList.length);
+		}
+	}, [pokemonList]);
+
 	return (
 		<PokeContext.Provider
 			value={{
@@ -145,6 +156,7 @@ export const PokeProvider: FC<PropsWithChildren<contextProps>> = ({
 				addToDesktop,
 				changeMode,
 				pokemonList,
+				pokemonCount,
 			}}
 		>
 			{children}
