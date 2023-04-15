@@ -58,6 +58,14 @@ export interface pokemonPropsWithID extends pokemonProps {
 	id: string;
 }
 
+export interface pokeCardProps {
+	pokemon: pokemonPropsWithID;
+}
+
+export interface pokeCardPropsDetail extends pokeCardProps {
+	setModalIsOpen: () => void;
+}
+
 export interface pokeContextProps {
 	getPokemons: (search: string) => void;
 	createPokemmons: (data: createPokemonProps) => void;
@@ -66,4 +74,5 @@ export interface pokeContextProps {
 	addToDesktop: (data: desktopDataProps) => void;
 	changeMode: (newMode: string) => void;
 	pokemonList: pokemonPropsWithID[];
+	pokemonCount: number;
 }

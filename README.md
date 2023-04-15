@@ -1,58 +1,54 @@
-# Teste de Desenvolvimento Web
+# Red Poke
 
-Olá Dev! Tudo bem?
+Red Poke é um projeto construído com Node.js, TypeScript e React, usando o Docker para containerizar a API e o banco de dados.
 
-A RedFox está sempre em busca de profissionais interessantes e interessados, com boa capacidade de aprendizado, adaptação e principalmente motivação!
+## Requisitos
 
-Este teste tem como objetivo avaliar e desafiar você. Não é obrigatório realizá-lo completamente, queremos apenas conhecer você, seu esforço e potencial para aprender, se adaptar e tomar decisões.
+Antes de começar, você precisará ter o Docker e o Yarn instalados em seu computador.
 
-Agora vamos ao teste!
+### Instalando o Docker
 
+Para instalar o Docker, siga as instruções oficiais da sua plataforma:
 
-## Desafio Pokémon
+- [Windows](https://docs.docker.com/desktop/windows/install/)
+- [macOS](https://docs.docker.com/desktop/mac/install/)
+- [Linux](https://docs.docker.com/engine/install/)
 
-Nós temos um problema, atualmente nosso sistema é só um excel, cheio de informações sobre Pokémon. Nós usamos ele como banco de dados e ao mesmo tempo interface de gerenciamento, inserindo, editando, deletando e filtrando os dados.
+### Instalando o Yarn
 
-A missão é criar um sistema para substituir este excel, pois queremos expandir e acrescentar funcionalidades. Queremos manter o básico, mas principalmente queremos uma forma prática e agradável de buscar os dados, com listagem, filtros, paginação e detalhes sobre cada Pokémon.
+O Yarn é um gerenciador de pacotes para o Node.js. Para instalá-lo, siga as instruções oficiais da sua plataforma:
 
-Fique à vontade com o layout, precisamos de uma interface que consiga entregar as funcionalidades principais e substituir o excel, só isso.
+- [Windows](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+- [macOS](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
+- [Linux](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 
+## Executando o projeto.
 
-## Consigo fazer tudo isso?
+1. Abra o terminal e clone o repositório:
 
-Consegue sim!
+   ```sh
+   git clone git@github.com:ogakip/teste-desenvolvimento-web.git
 
-O teste é flexível, você pode escolher alguma parte específica dele para fazer, em que se sinta mais confortável e confiante, por exemplo: a interface, as funcionalidades, o banco de dados, etc...O importante é tentar atingir o objetivo de alguma forma.
+2. No diretório raiz do projeto:
 
-Aqui na RedFox queremos aproveitar ao máximo suas habilidades e aptidões, mas também desafiar você a adquirir novas, então nossa equipe tem a liberdade de trasitar entre frontend, backend, infraestrutura, etc...Sem se restringir, tudo depende do esforço e vontade de cada um.
+### Inicie os contêineres com o Docker Compose
 
+   ```sh
+   docker-compose up
 
-## Por onde começo?
+### Em outro terminal, navegue até a pasta "backend"
+   cd backend
 
-Primeiramente, você pode fazer um fork desse repositório aqui, para sua conta do Github, depois disso crie uma branch nova com o seu nome, para podermos indentificá-lo.
+### Execute as migrações do banco de dados
+yarn typeormRun
 
-Após terminar o desafio, você pode solicitar um pull request para a branch master do nosso repositório. Vamos receber e fazer a avaliação de todos.
+# Navegue até a pasta do frontend
+cd ../frontend
 
+# Instale as dependências do projeto
+yarn
 
-## E o Layout??
+# Inicie a aplicação frontend
+yarn start
 
-Fique a vontade quanto a isso, não vamos avaliar o design da sua interface. Se quiser desenhar algo bacana, diferente, pensar até em UI/UX, etc...é claro que vamos valorizar o seu esforço e considerar como um diferencial, mas não se preocupe. 
-
-
-## Regras
-
-Para o desafio ficar mais interessante, decidimos criar algumas regras:
-- No layout, deve utilizar algum framework CSS (ex: Bootstrap, MaterializeCSS, Bulma...)
-- No frontend, deve utilizar algum framework JS (ex: VueJS, ReactJS, Angular...tente não usar jQuery)
-- No backend, deve utilizar NodeJS
-- Documentar um pouco o projeto, o que você fez e de que forma devemos executar-lo
-
-
-## Só isso?
-
-Só!...mas se quiser ir além, tente preparar o projeto para ser executado de maneira simples e prática, se coloque no lugar de alguém com menos conhecimentos, que precisa ver o que você desenvolveu. 
-
-ps: Se fizer deploy em algum servidor ou utilizar alguma ferramenta que facilite a execução (ex: docker), será um diferencial.
-
-
-Boa sorte! (^_^)
+# Agora você está pronto para utilizar a aplicação

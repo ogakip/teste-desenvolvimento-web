@@ -9,8 +9,7 @@ services:
   volumes:
    - ./backend/:/app:rw
   depends_on:
-   red_pokemon_database:
-    condition: service_healthy
+   - red_pokemon_database
 
  red_pokemon_database:
   image: postgres:14
