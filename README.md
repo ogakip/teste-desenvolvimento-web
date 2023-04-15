@@ -28,15 +28,23 @@ O Yarn é um gerenciador de pacotes para o Node.js. Para instalá-lo, siga as in
 
    ```sh
    git clone git@github.com:ogakip/teste-desenvolvimento-web.git
+   
+2. No diretório backend do projeto:
 
-2. No diretório raiz do projeto:
+    crie o arquivo de variáveis de ambiente .env.
+    Use as credenciais de exemplo encontradas dentro de .env_example
+    em seguida, rode no terminal para baixar os pacotes do servidor:
+    ```sh
+    yarn
+
+3. No diretório raiz do projeto:
 
 ### Inicie os contêineres com o Docker Compose
 
    ```sh
    docker-compose up
 
-### Em outro terminal, navegue até a pasta "backend"
+### Após o término do procedimento, em outro terminal, navegue até a pasta "backend"
    cd backend
 
 ### Execute as migrações do banco de dados
